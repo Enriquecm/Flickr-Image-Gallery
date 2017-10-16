@@ -19,7 +19,7 @@ class FlickrService {
 
     func requestFeed(completion: ((ModelFlickrFeed?, Error?) -> Void)?) {
 
-        let parameters = ["format": "json", "api_key": "0ca76fda4be91e0e084b40257e939db4"]
+        let parameters = ["nojsoncallback": "1", "format": "json", "api_key": "0ca76fda4be91e0e084b40257e939db4"]
         let headers = ["Content-Type": "application/json"]
 
         guard let url = currentService.buildURL(for: urlServer, and: parameters) else {
@@ -27,7 +27,7 @@ class FlickrService {
             return
         }
 
-        currentService.requestHttp(url: url, method: .get, headers: headers) { (data, response, error) in
+        currentService.requestHttp(url: url, method: .get, headers: headers) { data, response, error in
             guard error == nil else {
                 completion?(nil, error)
                 return
@@ -37,12 +37,24 @@ class FlickrService {
                 return
             }
 
-            guard let feed = try? JSONDecoder().decode(ModelFlickrFeed.self, from: responseData) else {
-                completion?(nil, ServiceError.responseFailed(reason: ServiceError.ResponseFailureReason.missingObjectSerialization))
-                return
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = self.dateDecodingStrategy()
+            do {
+                let feed = try decoder.decode(ModelFlickrFeed.self, from: responseData)
+                completion?(feed, nil)
+            } catch let error {
+                completion?(nil, error)
             }
+        }
+    }
 
-            completion?(feed, nil)
+    private func dateDecodingStrategy() -> JSONDecoder.DateDecodingStrategy {
+        if #available(iOS 10.0, *) {
+            return .iso8601
+        } else {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+            return .formatted(dateFormatter)
         }
     }
 }

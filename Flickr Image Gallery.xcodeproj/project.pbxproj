@@ -16,11 +16,18 @@
 		AD88815D1F92E69B0080E769 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD88815C1F92E69B0080E769 /* FeedViewModel.swift */; };
 		AD8881661F92E9170080E769 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8881651F92E9170080E769 /* SettingsViewController.swift */; };
 		AD8881681F92E9260080E769 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8881671F92E9260080E769 /* SettingsViewModel.swift */; };
+		ADA800C51F943A720074F241 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA800C41F943A720074F241 /* StringExtensions.swift */; };
+		ADA800CA1F94451A0074F241 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA800C91F94451A0074F241 /* UIViewExtensions.swift */; };
+		ADA800CC1F9445D00074F241 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA800CB1F9445D00074F241 /* UIImageViewExtensions.swift */; };
 		ADCD6F931F93C3A000E30780 /* ModelFlickrPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD6F921F93C3A000E30780 /* ModelFlickrPhoto.swift */; };
 		ADCD6F951F93C87400E30780 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD6F941F93C87400E30780 /* Service.swift */; };
 		ADCD6F971F93F39600E30780 /* ModelFlickrFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD6F961F93F39600E30780 /* ModelFlickrFeed.swift */; };
 		ADCD6F991F942E4800E30780 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD6F981F942E4800E30780 /* ServiceError.swift */; };
 		ADCD6F9B1F9431C100E30780 /* FlickrService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD6F9A1F9431C100E30780 /* FlickrService.swift */; };
+		ADCD6F9F1F9433F300E30780 /* FlickrPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD6F9D1F9433F300E30780 /* FlickrPhotoCollectionViewCell.swift */; };
+		ADCD6FA01F9433F300E30780 /* FlickrPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADCD6F9E1F9433F300E30780 /* FlickrPhotoCollectionViewCell.xib */; };
+		ADCD6FA21F94341400E30780 /* CellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD6FA11F94341400E30780 /* CellProtocol.swift */; };
+		ADF357CF1F944FF300800C3C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF357CE1F944FF300800C3C /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,11 +54,18 @@
 		AD88815C1F92E69B0080E769 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		AD8881651F92E9170080E769 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AD8881671F92E9260080E769 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		ADA800C41F943A720074F241 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		ADA800C91F94451A0074F241 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		ADA800CB1F9445D00074F241 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		ADCD6F921F93C3A000E30780 /* ModelFlickrPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFlickrPhoto.swift; sourceTree = "<group>"; };
 		ADCD6F941F93C87400E30780 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		ADCD6F961F93F39600E30780 /* ModelFlickrFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFlickrFeed.swift; sourceTree = "<group>"; };
 		ADCD6F981F942E4800E30780 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		ADCD6F9A1F9431C100E30780 /* FlickrService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrService.swift; sourceTree = "<group>"; };
+		ADCD6F9D1F9433F300E30780 /* FlickrPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		ADCD6F9E1F9433F300E30780 /* FlickrPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlickrPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		ADCD6FA11F94341400E30780 /* CellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocol.swift; sourceTree = "<group>"; };
+		ADF357CE1F944FF300800C3C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +158,10 @@
 		AD8881611F92E6F00080E769 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				ADA800C81F9444FE0074F241 /* Extensions */,
 				ADCD6F981F942E4800E30780 /* ServiceError.swift */,
+				ADCD6FA11F94341400E30780 /* CellProtocol.swift */,
+				ADF357CE1F944FF300800C3C /* ImageCache.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -163,6 +180,7 @@
 			children = (
 				AD88815C1F92E69B0080E769 /* FeedViewModel.swift */,
 				AD61115C1F91172C00D225D0 /* FeedViewController.swift */,
+				ADCD6F9C1F9433CA00E30780 /* Cells */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -174,6 +192,25 @@
 				AD8881651F92E9170080E769 /* SettingsViewController.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		ADA800C81F9444FE0074F241 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ADA800C41F943A720074F241 /* StringExtensions.swift */,
+				ADA800C91F94451A0074F241 /* UIViewExtensions.swift */,
+				ADA800CB1F9445D00074F241 /* UIImageViewExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ADCD6F9C1F9433CA00E30780 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				ADCD6F9D1F9433F300E30780 /* FlickrPhotoCollectionViewCell.swift */,
+				ADCD6F9E1F9433F300E30780 /* FlickrPhotoCollectionViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +298,7 @@
 			files = (
 				AD6111651F91172C00D225D0 /* LaunchScreen.storyboard in Resources */,
 				AD6111621F91172C00D225D0 /* Assets.xcassets in Resources */,
+				ADCD6FA01F9433F300E30780 /* FlickrPhotoCollectionViewCell.xib in Resources */,
 				AD6111601F91172C00D225D0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,13 +319,19 @@
 			files = (
 				ADCD6F971F93F39600E30780 /* ModelFlickrFeed.swift in Sources */,
 				AD8881681F92E9260080E769 /* SettingsViewModel.swift in Sources */,
+				ADF357CF1F944FF300800C3C /* ImageCache.swift in Sources */,
 				ADCD6F9B1F9431C100E30780 /* FlickrService.swift in Sources */,
 				ADCD6F951F93C87400E30780 /* Service.swift in Sources */,
 				ADCD6F931F93C3A000E30780 /* ModelFlickrPhoto.swift in Sources */,
 				AD61115D1F91172C00D225D0 /* FeedViewController.swift in Sources */,
 				AD61115B1F91172C00D225D0 /* AppDelegate.swift in Sources */,
+				ADCD6FA21F94341400E30780 /* CellProtocol.swift in Sources */,
+				ADA800CA1F94451A0074F241 /* UIViewExtensions.swift in Sources */,
 				ADCD6F991F942E4800E30780 /* ServiceError.swift in Sources */,
 				AD88815D1F92E69B0080E769 /* FeedViewModel.swift in Sources */,
+				ADCD6F9F1F9433F300E30780 /* FlickrPhotoCollectionViewCell.swift in Sources */,
+				ADA800C51F943A720074F241 /* StringExtensions.swift in Sources */,
+				ADA800CC1F9445D00074F241 /* UIImageViewExtensions.swift in Sources */,
 				AD8881661F92E9170080E769 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
