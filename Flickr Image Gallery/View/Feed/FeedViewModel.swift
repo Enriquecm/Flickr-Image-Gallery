@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+class FeedViewModel: NSObject {
+
+    private let flickrService: FlickrService
+
+    init(flickrService: FlickrService = FlickrService()) {
+        self.flickrService = flickrService
+    }
+}

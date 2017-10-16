@@ -16,6 +16,11 @@
 		AD88815D1F92E69B0080E769 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD88815C1F92E69B0080E769 /* FeedViewModel.swift */; };
 		AD8881661F92E9170080E769 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8881651F92E9170080E769 /* SettingsViewController.swift */; };
 		AD8881681F92E9260080E769 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8881671F92E9260080E769 /* SettingsViewModel.swift */; };
+		ADCD6F931F93C3A000E30780 /* ModelFlickrPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD6F921F93C3A000E30780 /* ModelFlickrPhoto.swift */; };
+		ADCD6F951F93C87400E30780 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD6F941F93C87400E30780 /* Service.swift */; };
+		ADCD6F971F93F39600E30780 /* ModelFlickrFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD6F961F93F39600E30780 /* ModelFlickrFeed.swift */; };
+		ADCD6F991F942E4800E30780 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD6F981F942E4800E30780 /* ServiceError.swift */; };
+		ADCD6F9B1F9431C100E30780 /* FlickrService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD6F9A1F9431C100E30780 /* FlickrService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +47,11 @@
 		AD88815C1F92E69B0080E769 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		AD8881651F92E9170080E769 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AD8881671F92E9260080E769 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		ADCD6F921F93C3A000E30780 /* ModelFlickrPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFlickrPhoto.swift; sourceTree = "<group>"; };
+		ADCD6F941F93C87400E30780 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		ADCD6F961F93F39600E30780 /* ModelFlickrFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFlickrFeed.swift; sourceTree = "<group>"; };
+		ADCD6F981F942E4800E30780 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		ADCD6F9A1F9431C100E30780 /* FlickrService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +117,8 @@
 		AD88815E1F92E6B40080E769 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				ADCD6F941F93C87400E30780 /* Service.swift */,
+				ADCD6F9A1F9431C100E30780 /* FlickrService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -132,6 +144,7 @@
 		AD8881611F92E6F00080E769 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				ADCD6F981F942E4800E30780 /* ServiceError.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -139,6 +152,8 @@
 		AD8881621F92E6F70080E769 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ADCD6F961F93F39600E30780 /* ModelFlickrFeed.swift */,
+				ADCD6F921F93C3A000E30780 /* ModelFlickrPhoto.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -264,9 +279,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADCD6F971F93F39600E30780 /* ModelFlickrFeed.swift in Sources */,
 				AD8881681F92E9260080E769 /* SettingsViewModel.swift in Sources */,
+				ADCD6F9B1F9431C100E30780 /* FlickrService.swift in Sources */,
+				ADCD6F951F93C87400E30780 /* Service.swift in Sources */,
+				ADCD6F931F93C3A000E30780 /* ModelFlickrPhoto.swift in Sources */,
 				AD61115D1F91172C00D225D0 /* FeedViewController.swift in Sources */,
 				AD61115B1F91172C00D225D0 /* AppDelegate.swift in Sources */,
+				ADCD6F991F942E4800E30780 /* ServiceError.swift in Sources */,
 				AD88815D1F92E69B0080E769 /* FeedViewModel.swift in Sources */,
 				AD8881661F92E9170080E769 /* SettingsViewController.swift in Sources */,
 			);
