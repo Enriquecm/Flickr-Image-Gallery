@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD2000BA1F94549400C9A6FB /* FeedViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2000B91F94549400C9A6FB /* FeedViewModelTests.swift */; };
+		AD2000BC1F9459B000C9A6FB /* ServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2000BB1F9459B000C9A6FB /* ServiceTests.swift */; };
+		AD2000C01F945B7400C9A6FB /* ServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2000BF1F945B7400C9A6FB /* ServiceHelper.swift */; };
 		AD61115B1F91172C00D225D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD61115A1F91172C00D225D0 /* AppDelegate.swift */; };
 		AD61115D1F91172C00D225D0 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD61115C1F91172C00D225D0 /* FeedViewController.swift */; };
 		AD6111601F91172C00D225D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD61115E1F91172C00D225D0 /* Main.storyboard */; };
@@ -16,6 +19,8 @@
 		AD88815D1F92E69B0080E769 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD88815C1F92E69B0080E769 /* FeedViewModel.swift */; };
 		AD8881661F92E9170080E769 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8881651F92E9170080E769 /* SettingsViewController.swift */; };
 		AD8881681F92E9260080E769 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8881671F92E9260080E769 /* SettingsViewModel.swift */; };
+		AD8C55B11F94608C00026319 /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8C55B01F94608C00026319 /* FeedViewControllerTests.swift */; };
+		AD8C55B31F94634400026319 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8C55B21F94634400026319 /* ModelTests.swift */; };
 		ADA800C51F943A720074F241 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA800C41F943A720074F241 /* StringExtensions.swift */; };
 		ADA800CA1F94451A0074F241 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA800C91F94451A0074F241 /* UIViewExtensions.swift */; };
 		ADA800CC1F9445D00074F241 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA800CB1F9445D00074F241 /* UIImageViewExtensions.swift */; };
@@ -41,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD2000B91F94549400C9A6FB /* FeedViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModelTests.swift; sourceTree = "<group>"; };
+		AD2000BB1F9459B000C9A6FB /* ServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTests.swift; sourceTree = "<group>"; };
+		AD2000BF1F945B7400C9A6FB /* ServiceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHelper.swift; sourceTree = "<group>"; };
 		AD6111571F91172C00D225D0 /* Flickr Image Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flickr Image Gallery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD61115A1F91172C00D225D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD61115C1F91172C00D225D0 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +62,8 @@
 		AD88815C1F92E69B0080E769 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		AD8881651F92E9170080E769 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AD8881671F92E9260080E769 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		AD8C55B01F94608C00026319 /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
+		AD8C55B21F94634400026319 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		ADA800C41F943A720074F241 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		ADA800C91F94451A0074F241 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		ADA800CB1F9445D00074F241 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
@@ -123,6 +133,10 @@
 			isa = PBXGroup;
 			children = (
 				AD61116F1F91172C00D225D0 /* Flickr_Image_GalleryTests.swift */,
+				AD8C55B01F94608C00026319 /* FeedViewControllerTests.swift */,
+				AD2000B91F94549400C9A6FB /* FeedViewModelTests.swift */,
+				AD8C55B21F94634400026319 /* ModelTests.swift */,
+				AD2000BB1F9459B000C9A6FB /* ServiceTests.swift */,
 				AD6111711F91172C00D225D0 /* Info.plist */,
 			);
 			path = "Flickr Image GalleryTests";
@@ -160,6 +174,7 @@
 			children = (
 				ADA800C81F9444FE0074F241 /* Extensions */,
 				ADCD6F981F942E4800E30780 /* ServiceError.swift */,
+				AD2000BF1F945B7400C9A6FB /* ServiceHelper.swift */,
 				ADCD6FA11F94341400E30780 /* CellProtocol.swift */,
 				ADF357CE1F944FF300800C3C /* ImageCache.swift */,
 			);
@@ -330,6 +345,7 @@
 				ADCD6F991F942E4800E30780 /* ServiceError.swift in Sources */,
 				AD88815D1F92E69B0080E769 /* FeedViewModel.swift in Sources */,
 				ADCD6F9F1F9433F300E30780 /* FlickrPhotoCollectionViewCell.swift in Sources */,
+				AD2000C01F945B7400C9A6FB /* ServiceHelper.swift in Sources */,
 				ADA800C51F943A720074F241 /* StringExtensions.swift in Sources */,
 				ADA800CC1F9445D00074F241 /* UIImageViewExtensions.swift in Sources */,
 				AD8881661F92E9170080E769 /* SettingsViewController.swift in Sources */,
@@ -340,6 +356,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD2000BA1F94549400C9A6FB /* FeedViewModelTests.swift in Sources */,
+				AD2000BC1F9459B000C9A6FB /* ServiceTests.swift in Sources */,
+				AD8C55B11F94608C00026319 /* FeedViewControllerTests.swift in Sources */,
+				AD8C55B31F94634400026319 /* ModelTests.swift in Sources */,
 				AD6111701F91172C00D225D0 /* Flickr_Image_GalleryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

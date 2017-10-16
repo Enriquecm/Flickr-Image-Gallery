@@ -22,9 +22,9 @@ class FeedViewModel: NSObject {
     var onDataSourceFailed: ((Error?) -> Void)?
     var onFlickrPhotoSelected: ((ModelFlickrPhoto) -> Void)?
 
-    private let flickrService: FlickrService
+    let flickrService: FlickrServiceProtocol
 
-    init(flickrService: FlickrService = FlickrService()) {
+    init(flickrService: FlickrServiceProtocol = FlickrService()) {
         self.flickrService = flickrService
         self.dataSource = []
     }
@@ -55,7 +55,9 @@ class FeedViewModel: NSObject {
     }
 
     func data(for indexPath: IndexPath) -> ModelFlickrPhoto? {
-        return dataSource[indexPath.row]
+        let row = indexPath.row
+        guard row < dataSource.count else { return nil }
+        return dataSource[row]
     }
 
     func didSelectRow(at indexPath: IndexPath) {

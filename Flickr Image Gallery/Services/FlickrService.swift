@@ -8,26 +8,34 @@
 
 import Foundation
 
-class FlickrService {
+protocol FlickrServiceProtocol: class {
+    init(service: ServiceProtocol)
+    func requestFeed(completion: ((ModelFlickrFeed?, Error?) -> Void)?)
+}
+
+class FlickrService: FlickrServiceProtocol {
 
     private let urlServer = URL(string: "https://api.flickr.com")
-    private let currentService: Service
+    private let currentService: ServiceProtocol
+    private let serviceHelper: ServiceHelperProtocol
 
-    init(service: Service = Service()) {
+    required init(service: ServiceProtocol = Service()) {
         self.currentService = service
+        self.serviceHelper = ServiceHelper()
     }
 
     func requestFeed(completion: ((ModelFlickrFeed?, Error?) -> Void)?) {
 
         let parameters = ["nojsoncallback": "1", "format": "json", "api_key": "0ca76fda4be91e0e084b40257e939db4"]
         let headers = ["Content-Type": "application/json"]
+        let endpoint = "/services/feeds/photos_public.gne"
 
-        guard let url = currentService.buildURL(for: urlServer, and: parameters) else {
+        guard let url = serviceHelper.buildURL(for: urlServer, pathComponent: endpoint, and: parameters) else {
             completion?(nil, ServiceError.invalidURL(url: urlServer))
             return
         }
 
-        currentService.requestHttp(url: url, method: .get, headers: headers) { data, response, error in
+        currentService.requestHttp(url: url, method: .get, parameters: parameters, headers: headers) { data, response, error in
             guard error == nil else {
                 completion?(nil, error)
                 return

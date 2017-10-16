@@ -15,7 +15,7 @@ class FeedViewController: UIViewController {
 
     // MARK: Properties
     private let refreshControl = UIRefreshControl()
-    fileprivate let viewModel = FeedViewModel()
+    internal let viewModel = FeedViewModel()
     fileprivate let interItemSpacing: CGFloat = 10
 
     // MARK: Life cycle
