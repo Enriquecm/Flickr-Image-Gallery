@@ -19,7 +19,7 @@ struct ServiceHelper: ServiceHelperProtocol {
 
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
 
-        if parameters.count > 0 {
+        if !parameters.isEmpty {
             var queryItems: [URLQueryItem] = components?.queryItems ??  []
             for params in parameters {
                 queryItems.append(contentsOf: buildQueryItems(parameters: params))
@@ -35,21 +35,21 @@ struct ServiceHelper: ServiceHelperProtocol {
         var queryItems: [URLQueryItem] = []
         for (key, value) in parameters {
 
-            let strKey = String(describing: key)
-            var strValue = ""
+            let queryName = String(describing: key)
+            var queryValue = ""
 
             if let array = value as? [Any] {
 
                 // For array objects
                 for (_, arrayValue) in array.enumerated() {
-                    let strArrayValue = String(describing: arrayValue)
-                    queryItems.append(URLQueryItem(name: strKey, value: strArrayValue))
+                    let queryArrayValue = String(describing: arrayValue)
+                    queryItems.append(URLQueryItem(name: queryName, value: queryArrayValue))
                 }
             } else if !(value is NSNull) {
 
                 // For any objects
-                strValue = String(describing: value)
-                queryItems.append(URLQueryItem(name: strKey, value: strValue))
+                queryValue = String(describing: value)
+                queryItems.append(URLQueryItem(name: queryName, value: queryValue))
             }
         }
         return queryItems

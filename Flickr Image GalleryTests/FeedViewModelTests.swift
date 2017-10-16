@@ -26,10 +26,17 @@ class FeedViewModelTests: XCTestCase {
         XCTAssertNotNil(viewModel, "The view model should not be nil.")
         XCTAssertTrue(viewModel.dataSource.isEmpty, "The dataSource should start empty.")
 
-        let flickrService = FlickrService()
+        let flickrService = FlickrServiceMock()
         let feedViewModel = FeedViewModel(flickrService: flickrService)
         XCTAssertNotNil(feedViewModel, "The view model should not be nil.")
         XCTAssertTrue(feedViewModel.flickrService === flickrService, "The service should be equal to the service that was passed in.")
+    }
+
+    func testMethods() {
+        let flickrService = FlickrServiceMock()
+        let feedViewModel = FeedViewModel(flickrService: flickrService)
+        feedViewModel.loadFeed()
+        XCTAssertTrue(flickrService.didRequest, "The request method should be called.")
     }
 
     func testDataSourceMethods() {
@@ -45,3 +52,32 @@ class FeedViewModelTests: XCTestCase {
         XCTAssertNil(viewModel.data(for: indexPath2), "The data should be nil before load information")
     }
 }
+
+private class ServiceMock: ServiceProtocol {
+    var didRequest = false
+    var requestedUrl: URL?
+    var requestMethod: HTTPMethod?
+    var requestedHeaders: HTTPHeaders?
+
+    func requestHttp(url: URL, method: HTTPMethod, headers: HTTPHeaders?, completion: ServiceResponse) {
+        didRequest = true
+        requestedUrl = url
+        requestMethod = method
+        requestedHeaders = headers
+    }
+}
+
+private class FlickrServiceMock: FlickrServiceProtocol {
+
+    var didRequest = false
+    private var currentService: ServiceProtocol
+
+    required init(service: ServiceProtocol = ServiceMock()) {
+        self.currentService = service
+    }
+
+    func requestFeed(completion: ((Data?, Error?) -> Void)?) {
+        didRequest = true
+    }
+}
+

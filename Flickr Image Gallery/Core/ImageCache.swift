@@ -8,9 +8,11 @@
 
 import UIKit
 
-private let imageCache = NSCache<NSString, AnyObject>()
+final class ImageCache {
 
-struct ImageCache {
+    static let shared = ImageCache()
+
+    private let imageCache = NSCache<NSString, AnyObject>()
 
     func cachedImage(forKey key: String?) -> UIImage? {
         guard let key = key else { return nil }
@@ -18,7 +20,7 @@ struct ImageCache {
         return image as? UIImage
     }
 
-    func setImage(_ image: UIImage?, forKey key: String?) {
+    func set(image: UIImage?, forKey key: String?) {
         guard let image = image, let key = key else { return }
         imageCache.setObject(image, forKey: key as NSString)
     }

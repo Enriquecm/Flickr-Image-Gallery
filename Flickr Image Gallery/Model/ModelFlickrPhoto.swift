@@ -37,6 +37,23 @@ struct ModelFlickrPhoto {
     }
 }
 
+extension ModelFlickrPhoto: Encodable {
+    func encode(to encoder: Encoder) throws {
+        var photo = encoder.container(keyedBy: CodingKeys.self)
+        try photo.encodeIfPresent(title, forKey: .title)
+        try photo.encodeIfPresent(link, forKey: .link)
+        try photo.encodeIfPresent(dateTaken, forKey: .dateTaken)
+        try photo.encodeIfPresent(_description, forKey: ._description)
+        try photo.encodeIfPresent(published, forKey: .published)
+        try photo.encodeIfPresent(author, forKey: .author)
+        try photo.encodeIfPresent(authorId, forKey: .authorId)
+        try photo.encodeIfPresent(tags, forKey: .tags)
+
+        var mediaContainer = photo.nestedContainer(keyedBy: MediaKeys.self, forKey: .media)
+        try mediaContainer.encodeIfPresent(media, forKey: .media)
+    }
+}
+
 extension ModelFlickrPhoto: Decodable {
 
     init(from decoder: Decoder) throws {

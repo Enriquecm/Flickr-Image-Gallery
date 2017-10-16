@@ -8,10 +8,20 @@
 
 import Foundation
 
-class FeedViewModel: NSObject {
+final class FeedViewModel: NSObject {
 
     // MARK: Properties
-    private(set) var dataSource: [ModelFlickrPhoto] {
+    let title = "Public Feed"
+
+    private var photos: [ModelFlickrPhoto]? {
+        didSet {
+            var viewModels = [FlickrPhotoCellViewModel]()
+            photos?.forEach({ viewModels.append(FlickrPhotoCellViewModel(photo: $0)) })
+            dataSource = viewModels
+        }
+    }
+    
+    private(set) var dataSource: [FlickrPhotoCellViewModel] = [] {
         didSet {
             onDataSourceChanged?()
         }
@@ -20,21 +30,25 @@ class FeedViewModel: NSObject {
     // MARK: Reactors
     var onDataSourceChanged: (() -> Void)?
     var onDataSourceFailed: ((Error?) -> Void)?
-    var onFlickrPhotoSelected: ((ModelFlickrPhoto) -> Void)?
+    var onFlickrPhotoSelected: ((FlickrPhotoCellViewModel) -> Void)?
 
-    let flickrService: FlickrServiceProtocol
+    internal let flickrService: FlickrServiceProtocol
 
     init(flickrService: FlickrServiceProtocol = FlickrService()) {
         self.flickrService = flickrService
-        self.dataSource = []
     }
 
     func loadFeed() {
-        flickrService.requestFeed { [weak self] feed, error in
-            if let feed = feed, error == nil {
-                self?.dataSource = feed.items ?? []
-            } else if error != nil {
+        flickrService.requestFeed { [weak self] (data, error) in
+            guard let data = data, error == nil else {
                 self?.onDataSourceFailed?(error)
+                return
+            }
+
+            let feedParser = Parser<ModelFlickrFeed>()
+            let feed = try? feedParser.parse(from: data, with: feedParser.dateDecodingStrategy())
+            if let feed = feed {
+                self?.photos = feed.items ?? []
             } else {
                 self?.onDataSourceFailed?(ServiceError.missingInformation)
             }
@@ -54,7 +68,7 @@ class FeedViewModel: NSObject {
         return FlickrPhotoCollectionViewCell.identifier
     }
 
-    func data(for indexPath: IndexPath) -> ModelFlickrPhoto? {
+    func data(for indexPath: IndexPath) -> FlickrPhotoCellViewModel? {
         let row = indexPath.row
         guard row < dataSource.count else { return nil }
         return dataSource[row]

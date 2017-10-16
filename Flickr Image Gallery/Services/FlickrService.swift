@@ -10,10 +10,10 @@ import Foundation
 
 protocol FlickrServiceProtocol: class {
     init(service: ServiceProtocol)
-    func requestFeed(completion: ((ModelFlickrFeed?, Error?) -> Void)?)
+    func requestFeed(completion: ((Data?, Error?) -> Void)?)
 }
 
-class FlickrService: FlickrServiceProtocol {
+final class FlickrService: FlickrServiceProtocol {
 
     private let urlServer = URL(string: "https://api.flickr.com")
     private let currentService: ServiceProtocol
@@ -24,7 +24,7 @@ class FlickrService: FlickrServiceProtocol {
         self.serviceHelper = ServiceHelper()
     }
 
-    func requestFeed(completion: ((ModelFlickrFeed?, Error?) -> Void)?) {
+    func requestFeed(completion: ((Data?, Error?) -> Void)?) {
 
         let parameters = ["nojsoncallback": "1", "format": "json", "api_key": "0ca76fda4be91e0e084b40257e939db4"]
         let headers = ["Content-Type": "application/json"]
@@ -35,7 +35,7 @@ class FlickrService: FlickrServiceProtocol {
             return
         }
 
-        currentService.requestHttp(url: url, method: .get, parameters: parameters, headers: headers) { data, response, error in
+        currentService.requestHttp(url: url, method: .get, headers: headers) { data, response, error in
             guard error == nil else {
                 completion?(nil, error)
                 return
@@ -44,25 +44,7 @@ class FlickrService: FlickrServiceProtocol {
                 completion?(nil, ServiceError.responseFailed(reason: ServiceError.ResponseFailureReason.missingObjectSerialization))
                 return
             }
-
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = self.dateDecodingStrategy()
-            do {
-                let feed = try decoder.decode(ModelFlickrFeed.self, from: responseData)
-                completion?(feed, nil)
-            } catch let error {
-                completion?(nil, error)
-            }
-        }
-    }
-
-    private func dateDecodingStrategy() -> JSONDecoder.DateDecodingStrategy {
-        if #available(iOS 10.0, *) {
-            return .iso8601
-        } else {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-            return .formatted(dateFormatter)
+            completion?(responseData, nil)
         }
     }
 }
