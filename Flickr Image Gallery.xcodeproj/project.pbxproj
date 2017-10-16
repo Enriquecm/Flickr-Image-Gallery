@@ -17,8 +17,6 @@
 		AD6111651F91172C00D225D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD6111631F91172C00D225D0 /* LaunchScreen.storyboard */; };
 		AD6111701F91172C00D225D0 /* Flickr_Image_GalleryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD61116F1F91172C00D225D0 /* Flickr_Image_GalleryTests.swift */; };
 		AD88815D1F92E69B0080E769 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD88815C1F92E69B0080E769 /* FeedViewModel.swift */; };
-		AD8881661F92E9170080E769 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8881651F92E9170080E769 /* SettingsViewController.swift */; };
-		AD8881681F92E9260080E769 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8881671F92E9260080E769 /* SettingsViewModel.swift */; };
 		AD8C55B11F94608C00026319 /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8C55B01F94608C00026319 /* FeedViewControllerTests.swift */; };
 		AD8C55B31F94634400026319 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8C55B21F94634400026319 /* ModelTests.swift */; };
 		ADA800C51F943A720074F241 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA800C41F943A720074F241 /* StringExtensions.swift */; };
@@ -60,8 +58,6 @@
 		AD61116F1F91172C00D225D0 /* Flickr_Image_GalleryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flickr_Image_GalleryTests.swift; sourceTree = "<group>"; };
 		AD6111711F91172C00D225D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD88815C1F92E69B0080E769 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
-		AD8881651F92E9170080E769 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		AD8881671F92E9260080E769 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		AD8C55B01F94608C00026319 /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
 		AD8C55B21F94634400026319 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		ADA800C41F943A720074F241 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -155,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				AD8881631F92E7210080E769 /* Feed */,
-				AD8881641F92E9010080E769 /* Settings */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,15 +193,6 @@
 				ADCD6F9C1F9433CA00E30780 /* Cells */,
 			);
 			path = Feed;
-			sourceTree = "<group>";
-		};
-		AD8881641F92E9010080E769 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				AD8881671F92E9260080E769 /* SettingsViewModel.swift */,
-				AD8881651F92E9170080E769 /* SettingsViewController.swift */,
-			);
-			path = Settings;
 			sourceTree = "<group>";
 		};
 		ADA800C81F9444FE0074F241 /* Extensions */ = {
@@ -333,7 +319,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADCD6F971F93F39600E30780 /* ModelFlickrFeed.swift in Sources */,
-				AD8881681F92E9260080E769 /* SettingsViewModel.swift in Sources */,
 				ADF357CF1F944FF300800C3C /* ImageCache.swift in Sources */,
 				ADCD6F9B1F9431C100E30780 /* FlickrService.swift in Sources */,
 				ADCD6F951F93C87400E30780 /* Service.swift in Sources */,
@@ -348,7 +333,6 @@
 				AD2000C01F945B7400C9A6FB /* ServiceHelper.swift in Sources */,
 				ADA800C51F943A720074F241 /* StringExtensions.swift in Sources */,
 				ADA800CC1F9445D00074F241 /* UIImageViewExtensions.swift in Sources */,
-				AD8881661F92E9170080E769 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
