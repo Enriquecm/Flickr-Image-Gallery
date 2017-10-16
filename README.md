@@ -5,7 +5,7 @@ Application to display an image gallery of the Flickr Public Feed.
 Just download the project and Cmd+R (Run)
 
 ### Architecture
-The following application was implemented using Swift with MVVM architecture pattern. 
+The following application was implemented using the MVVM architecture pattern. 
 - The chosen architecture enables developers to separe 'view' and 'model’, making possible for changes happen only on model with those changes not being reflected on view's implementation.
 
 ### Project Overview
