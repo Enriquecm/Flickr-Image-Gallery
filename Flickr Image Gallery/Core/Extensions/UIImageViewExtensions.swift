@@ -11,14 +11,14 @@ import UIKit
 extension UIImageView {
 
     func loadImage(withURL url: URL?) {
-        if let cachedImage = ImageCache().cachedImage(forKey: url?.absoluteString) {
+        if let cachedImage = ImageCache.shared.cachedImage(forKey: url?.absoluteString) {
             image = cachedImage
             return
         }
         DispatchQueue.global().async {
             if let url = url, let data = try? Data(contentsOf: url) {
                 let image = UIImage(data: data)
-                ImageCache().setImage(image, forKey: url.absoluteString)
+                ImageCache.shared.set(image: image, forKey: url.absoluteString)
 
                 DispatchQueue.main.async {
                     self.image = image

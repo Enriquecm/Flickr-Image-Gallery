@@ -24,15 +24,13 @@ class ServiceTests: XCTestCase {
     func testService() {
         let service = ServiceMock()
         let url = URL(string: "www.google.com.br")
-        let method = HTTPMethod.post
-        let parameters = ["myParameter": "myValue"]
+        let method = HTTPMethod.get
         let headers = ["theHeader": "theHeaderValue"]
-        service.requestHttp(url: url!, method: method, parameters: parameters, headers: headers, completion: nil)
+        service.requestHttp(url: url!, method: method, headers: headers, completion: nil)
 
         XCTAssertTrue(service.didRequest, "The request method should be called")
         XCTAssertEqual(service.requestedUrl, url, "The service url should be equal to the url that was passed in.")
-        XCTAssertTrue(service.requestMethod == .post, "The service method should be equal to the method that was passed in.")
-        XCTAssertEqual(service.requestedParameters?.count, parameters.count, "The service parameters should be equal to the parameters that was passed in.")
+        XCTAssertTrue(service.requestMethod == .get, "The service method should be equal to the method that was passed in.")
         XCTAssertEqual(service.requestedHeaders?.count, headers.count, "The service headers should be equal to the headers that was passed in.")
     }
 
@@ -43,23 +41,21 @@ class ServiceTests: XCTestCase {
     }
 }
 
-class ServiceMock: ServiceProtocol {
+private class ServiceMock: ServiceProtocol {
     var didRequest = false
     var requestedUrl: URL?
     var requestMethod: HTTPMethod?
-    var requestedParameters: Parameters?
     var requestedHeaders: HTTPHeaders?
 
-    func requestHttp(url: URL, method: HTTPMethod, parameters: Parameters?, headers: HTTPHeaders?, completion: ServiceResponse) {
+    func requestHttp(url: URL, method: HTTPMethod, headers: HTTPHeaders?, completion: ServiceResponse) {
         didRequest = true
         requestedUrl = url
         requestMethod = method
-        requestedParameters = parameters
         requestedHeaders = headers
     }
 }
 
-class FlickrServiceMock: FlickrServiceProtocol {
+private class FlickrServiceMock: FlickrServiceProtocol {
 
     var didRequest = false
     private var currentService: ServiceProtocol
@@ -68,7 +64,7 @@ class FlickrServiceMock: FlickrServiceProtocol {
         self.currentService = service
     }
 
-    func requestFeed(completion: ((ModelFlickrFeed?, Error?) -> Void)?) {
+    func requestFeed(completion: ((Data?, Error?) -> Void)?) {
         didRequest = true
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ModelFlickrFeed: Decodable {
+struct ModelFlickrFeed: Codable {
 
     var title: String?
     var link: URL?

@@ -8,10 +8,17 @@
 
 import UIKit
 
-class FlickrPhotoCollectionViewCell: UICollectionViewCell, SetupCellProtocol {
+class FlickrPhotoCollectionViewCell: UICollectionViewCell, BindCellProtocol {
 
     @IBOutlet weak var imageViewPhoto: UIImageView!
     @IBOutlet weak var labelAuthor: UILabel!
+
+    private var viewModel: FlickrPhotoCellViewModel? {
+        didSet {
+            clearInformation()
+            setupUI()
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,17 +35,12 @@ class FlickrPhotoCollectionViewCell: UICollectionViewCell, SetupCellProtocol {
         imageViewPhoto.image = nil
     }
 
-    func setup(with model: ModelFlickrPhoto?) {
-        clearInformation()
-        labelAuthor.text = model?.author?.formatFlickrAuthor()
-        imageViewPhoto.loadImage(withURL: model?.media)
+    private func setupUI() {
+        labelAuthor.text = viewModel?.author
+        imageViewPhoto.loadImage(withURL: viewModel?.media)
     }
-}
 
-private extension String {
-
-    func formatFlickrAuthor() -> String? {
-        let author = self.slice(from: "(\"", to: "\")")
-        return author
+    func bind(with viewModel: FlickrPhotoCellViewModel?) {
+        self.viewModel = viewModel
     }
 }

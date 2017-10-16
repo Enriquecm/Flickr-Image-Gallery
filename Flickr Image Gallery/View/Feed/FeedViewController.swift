@@ -47,7 +47,7 @@ class FeedViewController: UIViewController {
     }
 
     private func setupUI() {
-        title = "Public Feed"
+        title = viewModel.title
     }
 
     private func setupViewModel() {
@@ -100,8 +100,8 @@ extension FeedViewController: UICollectionViewDataSource {
         let identifier = viewModel.identifier(for: indexPath)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
         if let photoCell = cell as? FlickrPhotoCollectionViewCell {
-            let flickrPhoto = viewModel.data(for: indexPath)
-            photoCell.setup(with: flickrPhoto)
+            let photoViewModel = viewModel.data(for: indexPath)
+            photoCell.bind(with: photoViewModel)
         }
         return cell
     }

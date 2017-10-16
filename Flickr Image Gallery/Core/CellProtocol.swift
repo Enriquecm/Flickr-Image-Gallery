@@ -24,8 +24,8 @@ extension CellProtocol where Self: UICollectionReusableView {
     }
 }
 
-protocol SetupCellProtocol: CellProtocol {
+protocol BindCellProtocol: CellProtocol {
     associatedtype T
 
-    func setup(with model: T?)
+    func bind(with viewModel: T?)
 }
